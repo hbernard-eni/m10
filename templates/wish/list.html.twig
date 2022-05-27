@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <p>ℹ Base de données : eni_bucket_list_m10</p>
+
+    <section class="wishes-list">
+        <h2>All wishes!</h2>
+
+        {% for wish in aWishes %}
+            <article>
+               {{ wish.id }} | <a href="{{ path('wish_detail', {id: wish.id}) }}" title="View this wish in details">
+                    {{ wish.title }}</a>, par {{ wish.author }} le {{ wish.dateCreated|date('d/m/Y') }} 
+					{{ wish.isPublished ? '✅' : '⛔' }}
+            </article>
+        {% endfor %}
+    </section>
+
+    <p><a href="{{ path("wish_create") }}" title="Ajouter">Ajouter</p>
+{% endblock %}
+
+{% block title %}All wishes | {{ parent() }}{% endblock %}

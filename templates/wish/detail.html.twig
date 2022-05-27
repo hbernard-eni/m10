@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ wish.title }} | {{ parent() }}{% endblock %}
+{% block body %}
+    <h2>{{ wish.title }}</h2>
+    <p class="wish-credit">Created by {{ wish.author }} on {{ wish.dateCreated|date('d/m/Y') }}</p>
+    {# le filtre nl2br convertit les sauts de ligne du texte en balises <br> #}
+    <div>{{ wish.description|nl2br }}</div>
+{% endblock %}
